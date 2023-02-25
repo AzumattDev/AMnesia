@@ -114,7 +114,7 @@
     </Target>
     -->
 
-    <Target Name="GetAssemblyVersion" AfterTargets="ILRepacker">
+    <Target Name="GetAssemblyVersion" AfterTargets="AfterBuild">
         <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
             <Output TaskParameter="Assemblies" ItemName="Targets" />
         </GetAssemblyIdentity>
