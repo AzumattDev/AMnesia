@@ -12,7 +12,7 @@
 
 
 
-`This mod is not needed on a server. It's client only. Install on each client that you wish to have the mod load.`
+> `This mod is not needed on a server. It's client only. Install on each client that you wish to have the mod load.`
 
 
 
