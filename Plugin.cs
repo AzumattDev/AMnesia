@@ -14,7 +14,7 @@ namespace AMnesia
     public class AMnesiaPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AMnesia";
-        internal const string ModVersion = "1.0.0";
+        internal const string ModVersion = "1.0.1";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -80,7 +80,6 @@ namespace AMnesia
 
         private ConfigEntry<T> config<T>(string group, string name, T value, ConfigDescription description)
         {
-
             ConfigEntry<T> configEntry = Config.Bind(group, name, value, description);
             //var configEntry = Config.Bind(group, name, value, description);
 
@@ -133,7 +132,7 @@ namespace AMnesia
             {
                 if (Hud.IsUserHidden())
                     return false;
-                
+
                 if (text == Localization.instance.Localize("$msg_newday", EnvMan.instance.GetCurrentDay().ToString()))
                 {
                     if (AMnesiaPlugin.turnOffDayMessage.Value == AMnesiaPlugin.Toggle.On)
@@ -143,6 +142,31 @@ namespace AMnesia
                 }
 
                 return true;
+            }
+        }
+
+        [HarmonyPatch(typeof(Minimap), nameof(Minimap.AddPin))]
+        static class MinimapAddPinPatch
+        {
+            static void Postfix(Minimap __instance, Vector3 pos,
+                Minimap.PinType type,
+                string name,
+                bool save,
+                bool isChecked,
+                long ownerID = 0)
+            {
+                foreach (Minimap.PinData pin in __instance.m_pins)
+                {
+                    if (pin.m_name == string.Format("$hud_mapday {0}",
+                            EnvMan.instance.GetDay(ZNet.instance.GetTimeSeconds())))
+                    {
+                        pin.m_name = "";
+                    }
+                    else if (pin.m_name.Contains($"$hud_mapday"))
+                    {
+                        pin.m_name = "";
+                    }
+                }
             }
         }
     }

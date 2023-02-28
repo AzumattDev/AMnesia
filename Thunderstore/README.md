@@ -14,12 +14,9 @@
 
 > `This mod is not needed on a server. It's client only. Install on each client that you wish to have the mod load.`
 
-
 ### Mod source code can be found [here](https://github.com/AzumattDev/AMnesia)
 
-
 `Feel free to reach out to me on discord if you need manual download assistance.`
-
 
 # Author Information
 
@@ -37,6 +34,7 @@ For Questions or Comments, find me in the Odin Plus Team Discord or in mine:
 
 > # Update Information (Latest listed first)
 
-| `Version` | `Update Notes`    |
-|-----------|-------------------|
-| 1.0.0     | - Initial Release |
+| `Version` | `Update Notes`                                                                                                             |
+|-----------|----------------------------------------------------------------------------------------------------------------------------|
+| 1.0.1     | - Also remove the day from all pins on the map. This is retroactive, meaning it will remove old ones and prevent new ones. |
+| 1.0.0     | - Initial Release                                                                                                          |
