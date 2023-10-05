@@ -14,7 +14,7 @@ namespace AMnesia
     public class AMnesiaPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AMnesia";
-        internal const string ModVersion = "1.0.1";
+        internal const string ModVersion = "1.0.2";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -93,10 +93,10 @@ namespace AMnesia
 
         private class ConfigurationManagerAttributes
         {
-            [UsedImplicitly] public int? Order;
-            [UsedImplicitly] public bool? Browsable;
-            [UsedImplicitly] public string? Category;
-            [UsedImplicitly] public Action<ConfigEntryBase>? CustomDrawer;
+            [UsedImplicitly] public int? Order = null!;
+            [UsedImplicitly] public bool? Browsable = null!;
+            [UsedImplicitly] public string? Category = null!;
+            [UsedImplicitly] public Action<ConfigEntryBase>? CustomDrawer = null!;
         }
 
         #endregion
@@ -106,7 +106,7 @@ namespace AMnesia
     static class PlayerMessagePatch
     {
         static bool Prefix(Player __instance, MessageHud.MessageType type, string msg, int amount = 0,
-            Sprite icon = null)
+            Sprite icon = null!)
         {
             if (__instance.m_nview == null || !__instance.m_nview.IsValid())
                 return false;
@@ -128,7 +128,7 @@ namespace AMnesia
         static class MessageHudShowMessagePatch
         {
             static bool Prefix(MessageHud __instance, MessageHud.MessageType type, string text, int amount = 0,
-                Sprite icon = null)
+                Sprite icon = null!)
             {
                 if (Hud.IsUserHidden())
                     return false;
