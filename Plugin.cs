@@ -14,7 +14,7 @@ namespace AMnesia
     public class AMnesiaPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AMnesia";
-        internal const string ModVersion = "1.0.2";
+        internal const string ModVersion = "1.0.3";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -22,8 +22,7 @@ namespace AMnesia
         internal static string ConnectionError = "";
         private readonly Harmony _harmony = new(ModGUID);
 
-        public static readonly ManualLogSource AMnesiaLogger =
-            BepInEx.Logging.Logger.CreateLogSource(ModName);
+        public static readonly ManualLogSource AMnesiaLogger = BepInEx.Logging.Logger.CreateLogSource(ModName);
 
         public enum Toggle
         {
