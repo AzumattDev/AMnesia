@@ -1,6 +1,6 @@
 {
   "name": "AMnesia",
-  "version_number": "1.0.3",
+  "version_number": "1.0.4",
   "website_url": "https://github.com/AzumattDev/AMnesia",
   "description": "You can forget about what day it is. The day will not be shown when it becomes morning or when you wake up. This mod was made at the request of FURF#0838 on Discord.",
   "dependencies": [

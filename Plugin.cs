@@ -14,7 +14,7 @@ namespace AMnesia
     public class AMnesiaPlugin : BaseUnityPlugin
     {
         internal const string ModName = "AMnesia";
-        internal const string ModVersion = "1.0.3";
+        internal const string ModVersion = "1.0.4";
         internal const string Author = "Azumatt";
         private const string ModGUID = Author + "." + ModName;
         private static string ConfigFileName = ModGUID + ".cfg";
@@ -32,8 +32,7 @@ namespace AMnesia
 
         public void Awake()
         {
-            turnOffDayMessage = config("1 - General", "Turn off Day Message", Toggle.On,
-                "If on, the mod will disable the day count message when attempting to display it on the player's screen.");
+            turnOffDayMessage = config("1 - General", "Turn off Day Message", Toggle.On, "If on, the mod will disable the day count message when attempting to display it on the player's screen.");
 
 
             Assembly assembly = Assembly.GetExecutingAssembly();
@@ -147,17 +146,11 @@ namespace AMnesia
         [HarmonyPatch(typeof(Minimap), nameof(Minimap.AddPin))]
         static class MinimapAddPinPatch
         {
-            static void Postfix(Minimap __instance, Vector3 pos,
-                Minimap.PinType type,
-                string name,
-                bool save,
-                bool isChecked,
-                long ownerID = 0)
+            static void Postfix(Minimap __instance, Vector3 pos, Minimap.PinType type, string name, bool save, bool isChecked, long ownerID = 0)
             {
                 foreach (Minimap.PinData pin in __instance.m_pins)
                 {
-                    if (pin.m_name == string.Format("$hud_mapday {0}",
-                            EnvMan.instance.GetDay(ZNet.instance.GetTimeSeconds())))
+                    if (pin.m_name == string.Format("$hud_mapday {0}", EnvMan.instance.GetDay(ZNet.instance.GetTimeSeconds())))
                     {
                         pin.m_name = "";
                     }
