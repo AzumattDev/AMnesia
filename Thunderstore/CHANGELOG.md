@@ -1,5 +1,6 @@
 | `Version` | `Update Notes`                                                                                                             |
 |-----------|----------------------------------------------------------------------------------------------------------------------------|
+| 1.0.5     | - Update for Valheim latest update (0.220.3)                                                                               |
 | 1.0.4     | - Update for Bog Witch                                                                                                     |
 | 1.0.3     | - Update for latest Valheim 0.217.46                                                                                       |
 | 1.0.2     | - Update for latest Valheim                                                                                                |
